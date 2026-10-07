@@ -1,4 +1,5 @@
 # Databricks Retail Lakehouse
+[![CI](https://github.com/Rishika73/databricks-retail-lakehouse/actions/workflows/ci.yml/badge.svg)](https://github.com/Rishika73/databricks-retail-lakehouse/actions/workflows/ci.yml)
 
 An end-to-end retail analytics lakehouse built with Databricks, PySpark, Delta Lake, Unity Catalog, Databricks Jobs, and Databricks SQL.
 
