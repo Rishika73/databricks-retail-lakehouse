@@ -243,7 +243,6 @@ databricks-retail-lakehouse/
 │   ├── 02_daily_sales_trend.sql
 │   └── 03_kpi_summary.sql
 ├── docs/
-│   ├── architecture.png
 │   ├── databricks-retail-lakehouse-architecture.png
 │   ├── dashboard.png
 │   └── workflow_run.png
