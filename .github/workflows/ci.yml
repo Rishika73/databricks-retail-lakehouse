@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Validate Databricks notebook syntax
+        run: |
+          python -m compileall notebooks
+
+      - name: Verify SQL files
+        run: |
+          test -s sql/01_segment_performance.sql
+          test -s sql/02_daily_sales_trend.sql
+          test -s sql/03_kpi_summary.sql
+
+      - name: Verify required project files
+        run: |
+          test -f README.md
+          test -f LICENSE
+          test -f notebooks/01_bronze_ingestion.py
+          test -f notebooks/02_silver_transformations.py
+          test -f notebooks/03_data_quality.py
+          test -f notebooks/04_gold_analytics.py
