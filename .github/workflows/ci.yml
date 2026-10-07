@@ -19,6 +19,15 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Install test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pytest
+
+      - name: Run unit tests
+        run: |
+          python -m pytest -q
+
       - name: Validate Databricks notebook syntax
         run: |
           python -m compileall notebooks
@@ -33,6 +42,8 @@ jobs:
         run: |
           test -f README.md
           test -f LICENSE
+          test -f quality_rules.py
+          test -f tests/test_quality_rules.py
           test -f notebooks/01_bronze_ingestion.py
           test -f notebooks/02_silver_transformations.py
           test -f notebooks/03_data_quality.py
