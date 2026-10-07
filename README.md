@@ -8,9 +8,9 @@ The project implements a Medallion Architecture pipeline that ingests raw retail
 
 ## Architecture
 
-![Retail Lakehouse Architecture](docs/architecture.png)
+![Databricks Retail Lakehouse Architecture](docs/databricks-retail-lakehouse-architecture.png)
 
-The platform follows a Bronze → Silver → Gold design, with automated data-quality checks between transformation and analytics layers.
+The platform follows a Bronze → Silver → Gold lakehouse pattern, with incremental Delta processing, quarantine handling, automated data-quality gates, Databricks Jobs orchestration, Unity Catalog governance, and Databricks SQL analytics.
 
 ---
 
@@ -243,6 +243,7 @@ databricks-retail-lakehouse/
 │   └── 03_kpi_summary.sql
 ├── docs/
 │   ├── architecture.png
+│   ├── databricks-retail-lakehouse-architecture.png
 │   ├── dashboard.png
 │   └── workflow_run.png
 └── README.md
