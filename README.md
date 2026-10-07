@@ -233,6 +233,9 @@ This keeps data layers clearly separated and easier to manage.
 
 ```text
 databricks-retail-lakehouse/
+├── .github/
+│   └── workflows/
+│       └── ci.yml
 ├── notebooks/
 │   ├── 01_bronze_ingestion.py
 │   ├── 02_silver_transformations.py
@@ -246,6 +249,7 @@ databricks-retail-lakehouse/
 │   ├── databricks-retail-lakehouse-architecture.png
 │   ├── dashboard.png
 │   └── workflow_run.png
+├── LICENSE
 └── README.md
 ```
 
