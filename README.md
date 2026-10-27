@@ -302,3 +302,11 @@ This project demonstrates:
 - Customer lifetime value modeling
 - Pipeline monitoring and alerting
 - Cost and cluster optimization
+
+## Trade-offs
+
+- The Bronze → Silver → Gold medallion layout keeps raw, cleaned, and analytics-ready data clearly separated, at the cost of storing a copy of the data at each layer and running the pipeline stages sequentially.
+- Invalid orders go to a quarantine table instead of downstream analytics, which protects the Gold models, though the README does not describe an automated path for reprocessing quarantined records.
+- The four Databricks Job tasks run sequentially, which is simple to reason about but does not parallelize independent work.
+- The pipeline runs on a small embedded sample dataset, so it is easy to reproduce; real-scale ingestion would need the patterns listed under Future Improvements, such as Auto Loader and streaming ingestion.
+- Relying on the Databricks platform removes infrastructure management, but cost and cluster optimization are still listed as future work.
